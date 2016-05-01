@@ -1,0 +1,19 @@
+.job {
+	background-color: #e9e5dc;
+	border-radius: 25px;
+	margin-bottom: 50px;
+}
+
+.accomp {
+	font-size: .8em;
+}
+
+h1:first-of-type {
+	background-color: beige;
+}
+
+section > h2 {
+	border-style: ridge;
+	border-color: tan;
+	width: 350px;
+}
