@@ -14,6 +14,22 @@ cite {
   padding-left: 0px;
 }
 
+#external-links {
+  width: 20%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+main {
+  width: 79%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+body {
+  max-width: 960px;
+}
+
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like, 
 but it's optional! */
@@ -29,4 +45,36 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  body {
+    font-size: small;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    font-size: large;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+    #external-links {
+        float: none;
+        display: block;
+    }
+
+}
+
+#wrapper {
+  width: 800px;
+  margin: 0 auto;
 }
