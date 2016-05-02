@@ -1,0 +1,30 @@
+Robot in Elevator:
+
+-Enter Elevator
+-Ask owner what floor to go to
+	-If response is a number, scan button list for #{number}.
+		-Press button
+		-If #{number} is not listed, ask owner again
+	-If response is not a number
+		-Ask owner again
+-Tell owner "We'll be there shortly, master"
+
+Waking up:
+
+-Hear alarm clock
+	-Press "snooze"
+		-If lazy and not on schedule
+			-Do nothing
+		-If lazy and on schedule
+			-Force self to stand up, turn off alarm
+		-If not lazy
+			-Get up with a spring, enjoy day
+-Make way to kitchen
+	-Prepare breakfast
+		-If in mood for regular breakfast
+			-Eat bowl of fruit and packet of yogurt
+		-If ravenous
+			-Cook six scrambled eggs
+		-If not hungry
+			-Eat bannana
+-Continue on with day!
