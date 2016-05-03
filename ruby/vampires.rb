@@ -1,7 +1,7 @@
 puts "How many employees will be processed?"
 employees = gets.to_i
 
-until employees == 0
+while employees >= 1
 
 	puts "What is your name?"
 	name = gets.chomp
@@ -26,13 +26,14 @@ until employees == 0
 	while allergy != finish
 		puts "Please name any allergies you have. Enter done when finished."
 		allergy = gets.chomp
+	
+		if allergy == "sunshine"
+			puts "Probably a vampire."
+			exit!
+		end
 	end
-	
-	
-	
-	if allergy == "sunshine"
-		puts "VAMPIRE!"
-	elsif name == "Drake Cula" || name == "Tu Fang"
+		
+	if name == "Drake Cula" || name == "Tu Fang"
 		puts "Definitely a vampire."
 	elsif "#{2016 - age}" == "#{year_born}" && garlic_bread == "yes" && insurance == "yes"
 		puts "Probably not a vampire."
@@ -46,4 +47,6 @@ until employees == 0
 
 end
 
-puts "Thank you for using our services!"
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+
+exit!
