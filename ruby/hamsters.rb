@@ -12,10 +12,7 @@ candidate = gets.chomp
 
 puts "What is #{name}'s estimated age?"
 age = gets.to_i
-
-if age = ""
-	age = nil
-end
+age = age > 0 ? age : nil
 
 puts "The next hamster arriving is #{name}!" 
 puts "#{name}'s fur color is #{fur}." 
