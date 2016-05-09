@@ -1,9 +1,12 @@
 def encrypt(str)
-    letters = str.split('')
-    letters.each do |letter|
-    	letter == letter.next!
-    end
-    letters.join
+	letters = ('a'..'z').to_a
+  str = str.split('')
+  new_str = str.map do |x|
+    next ' ' unless letters.include?(x)
+    new_letter = letters[(letters.index(x)+1)%letters.length]
+    new_letter
+  end
+  return new_str.join
 end
 
 def decrypt(str)
@@ -16,8 +19,6 @@ def decrypt(str)
   end
   return new_str.join
 end
-
-
 
 puts "Hello, agent. Would you like to decrypt or encrypt a password?"
 action = gets.chomp
