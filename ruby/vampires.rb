@@ -23,21 +23,27 @@ while employees >= 1
 	allergy = ""
 	finish = "done"
 
+	if "#{2016 - age}" == "#{year_born}"
+		truth = true
+	else 
+		truth = false
+	end
+	
 	while allergy != finish
 		puts "Please name any allergies you have. Enter done when finished."
 		allergy = gets.chomp
 	
 		if allergy == "sunshine"
 			puts "Probably a vampire."
-			exit!
+			break
 		end
 	end
 		
 	if name == "Drake Cula" || name == "Tu Fang"
 		puts "Definitely a vampire."
-	elsif "#{2016 - age}" == "#{year_born}" && garlic_bread == "yes" && insurance == "yes"
+	elsif truth == true && garlic_bread == "yes" && insurance == "yes"
 		puts "Probably not a vampire."
-	elsif "#{2016 - age}" != "#{year_born}" && (garlic_bread == "no" || insurance == "no")
+	elsif truth == false && (garlic_bread == "no" || insurance == "no")
 		puts "Probably a vampire."
 	else
 		puts "Results inconclusive."
