@@ -12,3 +12,4 @@ BEHAVIOR -----------------------
 Bark
 Jumping on human
 Play cute for food
+
