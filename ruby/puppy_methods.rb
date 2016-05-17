@@ -43,7 +43,6 @@ class Kitten
 
 end
 
-50.times { Kitten.new }
 
 maddie = Puppy.new
 
@@ -57,3 +56,15 @@ squash = Kitten.new
 
 squash.play("laser")
 squash.jump(2)
+
+kittens = []
+50.times do 
+    meow = Kitten.new
+    kittens << meow
+end
+
+kittens.each do |cat|
+	cat.play("fake mouse")
+	cat.jump(1)
+end
+
