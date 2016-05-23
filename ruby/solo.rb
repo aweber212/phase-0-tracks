@@ -68,5 +68,10 @@ while num_instances == "y"
 		exit!
 	end
 
+# I was trying to figure out how to print the array as a string with
+# each attribute for each instance, but I couldn't work it out. The 
+# best I could do was an each loop that would only print out the last
+# instance entered. Any help would be appretiated!
+
 end
 
