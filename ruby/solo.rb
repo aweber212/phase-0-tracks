@@ -12,13 +12,13 @@
 class Bond
 
 	attr_reader :bad_guys_down
-	attr_accessor :arch_enemy
+	attr_accessor :arch_enemy, :martini
 
-	def initialize(bad_guys_down, arch_enemy)
+	def initialize(bad_guys_down, arch_enemy, martini)
 		p "Initializing James Bond instance..."
 		@bad_guys_down = bad_guys_down
 		@arch_enemy = arch_enemy
-		@martini = false
+		@martini = martini
 	end
 
 	def name
@@ -29,19 +29,44 @@ class Bond
 		@bad_guys_down = bad_guys_down + 1
 	end
 
-	def martini
-		@martini = true
+	def martini_drinken
+		@martini = martini + 1
 	end
 
 end
 
-sean_connery = Bond.new(4, "Auric Goldfinger")
+sean_connery = Bond.new(4, "Auric Goldfinger", 3)
 
-p "Greetings, 007. How many instance's of yourself would you like to create?"
-num_instances = gets.to_i
+p "Greetings, 007. Would you like to create an instance of yourself? (y/n)"
+num_instances = gets.chomp
+
 
 bonds = []
-num_instances.times do 
-	james = Bond.new 
-	bonds << james
+while num_instances == "y"
+
+	p "How many bad guys have you taken care of today, Mr. Bond?"
+	bad_guys_down = gets.to_i
+	
+	p "Who is your arch enemy?"
+	arch_enemy = gets.chomp
+	
+	p "Have you started drinking yet, today, Mr. Bond? (y/n)"
+	drinking = gets.chomp
+	if drinking == "y"
+		martini = 1
+	else martini = 0
+	end
+	
+	james = Bond.new(bad_guys_down, arch_enemy, martini)
+	bonds.push(james)
+	
+	p "If you are done creating instances of yourself, please enter 'done'. Otherwise, hit enter."
+	another = gets.chomp
+	
+	if another == "done"
+		p bonds
+		exit!
+	end
+
 end
+
