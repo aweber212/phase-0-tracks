@@ -8,12 +8,12 @@ describe Dancer do
   end
 
   it "has a readable age" do
-    expect(dancer.age).to eq 33
+    expect(dancer.ages).to eq 33
   end
 
   it "has a writeable age" do
-    dancer.age = 34
-    expect(dancer.age).to eq 34
+    dancer.ages = 34
+    expect(dancer.ages).to eq 34
   end
 
   it "twirls" do

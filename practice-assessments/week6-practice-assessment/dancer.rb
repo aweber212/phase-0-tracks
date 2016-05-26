@@ -1,7 +1,7 @@
 class Dancer
 
-	attr_reader :ages, :names, :card, :dancers
-	attr_accessor :age
+	attr_reader :names, :card, :dancers
+	attr_accessor :ages, :age
 
 	def initialize(names, ages, leap = false)
 		@dancers = []
@@ -51,11 +51,9 @@ class Dancer
 	# "Now dancing with #{card[0]}". Despite the fact that that does in fact 
 	# print out in the output. 
 	# Any help with this would be greatly appretiated. Thanks!
-	
+
 	def begin_next_dance
-		"Now dancing with #{card[0]}."
-		card.delete_at(0)
-		p card
+		"Now dancing with #{@card.delete_at(0)}."
 	end
 
 	def can_leap
