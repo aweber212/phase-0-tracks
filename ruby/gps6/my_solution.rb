@@ -23,8 +23,8 @@ class VirusPredictor
   # speed_of_spread.
 
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
@@ -32,7 +32,7 @@ class VirusPredictor
   # Returns deaths based on population density. Prints out 
   # how death will occur in the state.
 
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -52,7 +52,8 @@ class VirusPredictor
 
     # Take in population density and returns speed variable.
 
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread
+    # in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -81,18 +82,31 @@ end
  # initialize VirusPredictor for each state
 
 
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.virus_effects
 
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-jersey.virus_effects
+STATE_DATA.each_pair do |key, value|
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-california.virus_effects
+  s = VirusPredictor.new(key, value[:population_density], value[:population])
+  s.virus_effects
 
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-alaska.virus_effects
+end
+
+
 
 
 #=======================================================================
 # Reflection Section
+
+# Inside the parent hash is the input as a hash in of itself, along
+# with the state that the input corresponds to. 
+# The parent hash is using a hash rocket, while the other hash 
+# uses symbols. For non-symbols, use a hash rocket. 
+
+# require_relative
+# Makes a relative file in directory accessable.
+# Require in general brings in outside info such as gems.
+
+# You can use each, each_pair, map methods.
+
+# The attributes were unnessessary. 
+
+# The concept I probably learned the most about was the private function.
