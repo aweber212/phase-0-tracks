@@ -1,6 +1,15 @@
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census
 
+# Inside the parent hash is the input as a hash in of itself, along
+# with the state that the input corresponds to.
+
+# The parent hash is using a hash rocket, while the other hash 
+# uses symbols. For non-symbols, use a hash rocket. 
+
+# A capitalized variable is called a constant, which is a variable
+# that exists throughout a Ruby program.
+
 
 STATE_DATA = {
   "Alabama" => {population_density: 94.65, population: 4822023},
