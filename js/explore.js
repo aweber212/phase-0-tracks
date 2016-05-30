@@ -8,7 +8,13 @@
 // Outpout: String reversed 
 
 var reverse = function(string) {
-	return string.split('').reverse().join('');
-}
+	new_string = string.split('').reverse().join('');
+	if (1 == 1){
+	console.log(new_string)
+		}
+		
+	}
 
-console.log(reverse("hello"))
+
+
+reverse("hello")
