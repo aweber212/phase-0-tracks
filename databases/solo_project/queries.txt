@@ -1,0 +1,76 @@
+1.
+
+sqlite> SELECT * FROM engineers;
+1|Will Monahan|3513|false|3
+2|John Gillespie|8371|false|2
+3|Latisha Weber|9832|true|1
+4|Rebecca Johansen|2821|false|3
+5|Michael Johnson|8352|true|4
+6|Junh-ho Park|1739|false|2
+7|Salvatore Fermaggio|4916|false|3
+
+2. 
+
+sqlite> UPDATE engineers SET badge=8359 WHERE name="Michael Johnson";
+sqlite> SELECT * FROM engineers WHERE name ="Michael Johnson";
+5|Michael Johnson|8359|true|4
+
+3. 
+
+sqlite> SELECT * FROM engineers, routes WHERE engineers.route_id = routes.id;
+1|Will Monahan|3513|false|3|3|R|false|45
+2|John Gillespie|8371|false|2|2|3|true|25
+3|Latisha Weber|9832|true|1|1|1|false|30
+4|Rebecca Johansen|2821|false|3|3|R|false|45
+5|Michael Johnson|8359|true|4|4|Q|true|10
+6|Junh-ho Park|1739|false|2|2|3|true|25
+7|Salvatore Fermaggio|4916|false|3|3|R|false|45
+
+4. 
+
+sqlite> SELECT engineers.name, engineers.badge, routes.route_name FROM engineers JOIN routes ON engineers.route_id = routes.id;
+Will Monahan|3513|R
+John Gillespie|8371|3
+Latisha Weber|9832|1
+Rebecca Johansen|2821|R
+Michael Johnson|8359|Q
+Junh-ho Park|1739|3
+Salvatore Fermaggio|4916|R
+
+5. 
+
+sqlite> DELETE FROM engineers
+   ...> where name="Michael Johnson";
+sqlite> SELECT * FROM engineers;
+1|Will Monahan|3513|false|3
+2|John Gillespie|8371|false|2
+3|Latisha Weber|9832|true|1
+4|Rebecca Johansen|2821|false|3
+6|Junh-ho Park|1739|false|2
+7|Salvatore Fermaggio|4916|false|3
+
+6. 
+
+sqlite> SELECT engineers.badge, routes.express, routes.route_name FROM engineers JOIN routes ON engineers.route_id = routes.id;
+3513|false|R
+8371|true|3
+9832|false|1
+2821|false|R
+1739|true|3
+4916|false|R
+
+sqlite> SELECT engineers.name, engineers.experience, routes.express, routes.route_name FROM engineers JOIN routes ON engineers.route_id = routes.id;
+Will Monahan|false|false|R
+John Gillespie|false|true|3
+Latisha Weber|true|false|1
+Rebecca Johansen|false|false|R
+Junh-ho Park|false|true|3
+Salvatore Fermaggio|false|false|R
+
+sqlite> SELECT engineers.name, engineers.experience, routes.route_name, routes.route_name FROM engineers JOIN routes ON engineers.route_id = routes.id;
+Will Monahan|false|R|R
+John Gillespie|false|3|3
+Latisha Weber|true|1|1
+Rebecca Johansen|false|R|R
+Junh-ho Park|false|3|3
+Salvatore Fermaggio|false|R|R
