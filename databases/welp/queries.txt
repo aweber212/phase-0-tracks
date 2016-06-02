@@ -1,0 +1,37 @@
+Release 2 -
+
+2.
+
+sqlite> SELECT * FROM businesses, users, reviews WHERE reviews.business_id = businesses.id AND reviews.user_id = users.id;
+
+id|name|zagat_rated|id|first_name|last_name|id|stars|comment|business_id|user_id
+
+2|Dominoes|false|4|Ian|Sebastian|1|1|The worst pizza I've ever tasted!|2|4
+4|Stellas|true|2|Lisa|Podol|2|5|Exquisite kale salads|4|2
+5|45 Main|true|3|David|Anthony|3|2|It took forever for our food to arrive!|5|3
+3|Pat McFees|true|1|Donald|McManus|4|3|Great Irish pub!|3|1
+4|Stellas|true|4|Ian|Sebastian|5|3|No valet! Hmph|4|4
+4|Stellas|true|1|Donald|McManus|6|4|The chicken is excellent|4|1
+
+3. 
+
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN businesses, users ON reviews.business_id = businesses.id AND reviews.user_id = users.id;
+
+first_name|last_name|name|stars|comment
+
+Ian|Sebastian|Dominoes|1|The worst pizza I've ever tasted!
+Lisa|Podol|Stellas|5|Exquisite kale salads
+David|Anthony|45 Main|2|It took forever for our food to arrive!
+Donald|McManus|Pat McFees|3|Great Irish pub!
+Ian|Sebastian|Stellas|3|No valet! Hmph
+Donald|McManus|Stellas|4|The chicken is excellent
+
+4. 
+
+sqlite> SELECT * FROM reviews JOIN businesses, users ON reviews.business_id = businesses.id AND reviews.user_id = users.id WHERE businesses.name="Stellas";
+
+id|stars|comment|business_id|user_id|id|name|zagat_rated|id|first_name|last_name
+
+2|5|Exquisite kale salads|4|2|4|Stellas|true|2|Lisa|Podol
+5|3|No valet! Hmph|4|4|4|Stellas|true|4|Ian|Sebastian
+6|4|The chicken is excellent|4|1|4|Stellas|true|1|Donald|McManus
